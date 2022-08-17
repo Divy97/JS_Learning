@@ -18,6 +18,24 @@ function square(x) {
 
 console.log("MAP: ", myPolyfillMap(mapArray, square));
 
+// 2nd method
+
+let myMapArray = [1, 2, 3, 4, 5];
+Array.prototype.myMap = function (callBack) {
+  let tempArray = [];
+
+  for (let i = 0; i < this.length; i++) {
+    tempArray.push(callBack(this[i], i, this));
+  }
+
+  return tempArray;
+};
+
+const multiply = myMapArray.myMap((ele, i, arr) => {
+  return ele * 2;
+});
+
+console.log("MY_MAP: ", multiply);
 // filter
 
 let filterArray = [1, 2, 3, 4, 5, 6];
@@ -41,22 +59,44 @@ function isEven(x) {
 }
 console.log("FILTER: ", myPolyfillFilter(filterArray, isEven));
 
-// Reduce
+// 2nd method
 
-// let sumArray = myArr.reduce(function (accumulator, x) {
-//     return accumulator + x;
-//   }, 0);
+let myFilterArray = [1, 2, 3, 4, 5];
+Array.prototype.myFilter = function (callBack) {
+  let tempArray = [];
 
-// let reduceArray = [1, 2, 3, 4, 5];
+  for (let i = 0; i < this.length; i++) {
+    if (callBack(this[i], i, this)) {
+      tempArray.push(this[i]);
+    }
+  }
+  return tempArray;
+};
 
-// function myPolyfillReduce(callBack, initialValue = 0) {}
+const filter = myFilterArray.myFilter((ele) => {
+  return ele > 2;
+});
 
-// function addAll(arr, sum) {
-//   for (const element of arr) {
-//     sum = sum + element;
-//   }
+console.log("MY_FILTER: ", filter);
 
-//   return sum;
-// }
+// Polyfill of Reduce
 
-// console.log(addAll(reduceArray, 0));
+let myReduceArray = [1, 2, 3, 4, 5];
+
+Array.prototype.myReduce = function (callBack, initialValue) {
+  let accumulator = initialValue;
+
+  for (let i = 0; i < this.length; i++) {
+    accumulator = accumulator
+      ? callBack(accumulator, this[i], i, this)
+      : this[i];
+  }
+
+  return accumulator;
+};
+
+const reduce = myReduceArray.myReduce((acc, curr, i, arr) => {
+  return acc + curr;
+});
+
+console.log("MY_REDUCE", reduce);
