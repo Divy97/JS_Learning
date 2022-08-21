@@ -1,42 +1,42 @@
-// map
+map;
 
-// let mapArray = [1, 2, 3, 4, 5];
+let mapArray = [1, 2, 3, 4, 5];
 
-// function myPolyfillMap(arr, callBack) {
-//   let newArrayMap = [];
+function myPolyfillMap(arr, callBack) {
+  let newArrayMap = [];
 
-//   for (let element of arr) {
-//     newArrayMap.push(callBack(element));
-//   }
+  for (let element of arr) {
+    newArrayMap.push(callBack(element));
+  }
 
-//   return newArrayMap;
-// }
+  return newArrayMap;
+}
 
-// function square(x) {
-//   return x * x;
-// }
+function square(x) {
+  return x * x;
+}
 
-// console.log("MAP: ", myPolyfillMap(mapArray, square));
+console.log("MAP: ", myPolyfillMap(mapArray, square));
 
-// // filter
+// filter
 
-// let filterArray = [1, 2, 3, 4, 5, 6];
+let filterArray = [1, 2, 3, 4, 5, 6];
 
-// function myPolyfillFilter(arr, callBack) {
-//   let newArrayFilter = [];
+function myPolyfillFilter(arr, callBack) {
+  let newArrayFilter = [];
 
-//   for (let element of arr) {
-//     if (callBack(element)) {
-//       newArrayFilter.push(element);
-//     }
-//   }
+  for (let element of arr) {
+    if (callBack(element)) {
+      newArrayFilter.push(element);
+    }
+  }
 
-//   return newArrayFilter;
-// }
+  return newArrayFilter;
+}
 
-// function isEven(x) {
-//   if (x % 2 === 0) {
-//     return x;
-//   }
-// }
-// console.log("FILTER: ", myPolyfillFilter(filterArray, isEven));
+function isEven(x) {
+  if (x % 2 === 0) {
+    return x;
+  }
+}
+console.log("FILTER: ", myPolyfillFilter(filterArray, isEven));
