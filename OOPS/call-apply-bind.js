@@ -2,9 +2,9 @@ let person1 = {
   name: "Divy",
   age: 19,
 
-  //   showDetails: function () {
-  //     console.log(this.name + " is " + this.age + " years old ");
-  //   },
+  // showDetails: function () {
+  //   console.log(this.name + " is " + this.age + " years old ");
+  // },
 };
 
 let person2 = {
@@ -21,8 +21,8 @@ let showDetails = function (city, car) {
   );
 };
 
-showDetails.call(person1, "Delhi", "Alto"); // call
-showDetails.apply(person2, ["Mumbai", "Thar"]); // apply
+// showDetails.call(person1, "Delhi", "Alto"); // call
+// showDetails.apply(person2, ["Mumbai", "Thar"]); // apply
 
 let showDetailsBind = showDetails.bind(person2, "Mumbai", "Thar"); // bind
 showDetailsBind();

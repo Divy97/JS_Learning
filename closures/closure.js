@@ -7,7 +7,7 @@ function x() {
   function y() {
     console.log(a);
   }
-  a = 100;
+  // a = 100;
   return y;
 }
 var z = x();
